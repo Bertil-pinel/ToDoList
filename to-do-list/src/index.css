@@ -1,0 +1,20 @@
+.task{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.task .date{
+    width: 5%;
+    padding-left: 1em;
+    padding-right: 3em;
+    color: gray;
+}
+.task button{
+    position: fixed;
+    right: 1em;
+}
+.task .content{
+    width: 80%;
+}
