@@ -26,7 +26,6 @@ const App = () =>{
     }
 
     const onClickCheckHandler = (index) =>{
-        console.log(index);
         let newTasks = Tasks.slice();
         newTasks[index].isChecked = !newTasks[index].isChecked;
 
@@ -34,16 +33,14 @@ const App = () =>{
     }
 
     const onClickBinHandler = (e) =>{
-        let temp = this.state.tasks.slice();
+        let temp = Tasks.slice();
         temp.splice(e, 1);
-        this.setState({
-          tasks : temp,
-        })
+        setTasks(temp);
     }
 
     const addTask = (taskToAdd) => {
         this.setState({
-          tasks : this.props.Tasks.concat([{        
+          tasks : this.Tasks.concat([{        
                 taskToAdd  
           }]),
         }); 
@@ -58,8 +55,8 @@ const App = () =>{
               content={Tasks[i].content}
               isChecked={Tasks[i].isChecked}
               ID={i}
-              binHandler={() => this.onClickBinHandler(i)}
-              onClickCheckHandler={() => this.props.onClickCheckHandler()}
+              binHandler={() => onClickBinHandler(i)}
+              onClickCheckHandler={() => onClickCheckHandler(i)}
             />
         );
     }
