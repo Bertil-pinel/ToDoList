@@ -1,11 +1,5 @@
 import React from "react";
 
-let ID=0;
-  
-function newID(){
-    ID++;
-    return ID;
-}
 
 class Task extends React.Component {
 
@@ -14,22 +8,26 @@ class Task extends React.Component {
       this.state= {   
         date: props.date,
         content: props.content,
-        isImportant: props.isImportant,
-        isChecked : false,
-        id: newID(),
+        isChecked : props.isChecked,
+        id: props.ID,
         };
+    }
+
+    onChangeHandler(e){
+      console.log('click');
     }
   
       
     render() {
-
+      let checked = this.state.isChecked ? <div class="checked"></div> : <div class="unchecked"></div>; 
+     
       return (
         <li>
-            <div className="task">
-                <input type="checkbox"></input>
+            <div id={this.state.id} className="task">
+                {checked}
                 <p className="date">{this.state.date}</p>
                 <p className="content">{this.state.content}</p>
-                <button >supprimer</button>     
+                <button ><img src="/bin.png" height="20"/></button>     
             </div>
         </li>
       );

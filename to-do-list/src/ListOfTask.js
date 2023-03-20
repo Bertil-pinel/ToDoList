@@ -1,11 +1,12 @@
 import React from "react";
 import Task from "./Task";
 
+
 class ListOfTask extends React.Component {
 
     constructor(props) {    
       super(props); 
-      this.state= {   
+      this.state= {
         tasks: props.tasks,
         numberOfTasks: props.tasks.length,
       };
@@ -23,8 +24,11 @@ class ListOfTask extends React.Component {
     renderTask(i){
         return (
             <Task 
-            date={this.props.tasks[i].date}
-            content={this.props.tasks[i].content}
+              key={i}
+              date={this.state.tasks[i].date}
+              content={this.state.tasks[i].content}
+              isChecked={this.state.tasks[i].isChecked}
+              ID={i}
             />
         );
             
@@ -32,10 +36,10 @@ class ListOfTask extends React.Component {
     }
       
     render() {
-        const Tasks = () => {
-            for(let i = 0 ; i < this.props.tasks.length; i++)
-                this.renderTask(i);
-        }
+        const Tasks = [];
+        for(let i = 0 ; i < this.state.numberOfTasks; i++)
+          Tasks.push(this.renderTask(i));
+      
   
       return (
         <div className="tasks">

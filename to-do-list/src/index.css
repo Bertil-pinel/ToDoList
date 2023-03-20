@@ -18,3 +18,18 @@
 .task .content{
     width: 80%;
 }
+
+.checked{
+    height: 0.5em;
+    width: 0.5em;
+    border: solid gray 0.1em;
+    border-radius: 0.2em;
+    background-color: green;
+}
+
+.checked{
+    height: 0.5em;
+    width: 0.5em;
+    border: solid gray 0.1em;
+    border-radius: 0.2em;
+}
