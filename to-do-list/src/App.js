@@ -7,12 +7,20 @@ import "./App.css";
 
 const App = () =>{
 
-    const [Tasks, setTasks] = useState([
+    const [Tasks, setTasks] = useState(JSON.parse(localStorage.getItem('Tasks'))
+        /*[
         {"date": "10/12/1203","content": "Ma premiere tache", "isChecked" : false},
         {"date": "10/12/1203","content": "Vaisselle", "isChecked" : false},
         {"date" : "10/12/1203","content": "devoirs", "isChecked" : true},
         {"date" : "10/12/1203","content": "GAMING","isChecked" : true}       
-    ]);
+    ]*/
+    );
+
+    localStorage.setItem('Tasks',JSON.stringify(Tasks));
+
+    const tasksModified = () =>{
+        localStorage.setItem('Tasks',JSON.stringify(Tasks));
+    }
 
 
     const taskCount = () => {
@@ -28,23 +36,37 @@ const App = () =>{
     const onClickCheckHandler = (index) =>{
         let newTasks = Tasks.slice();
         newTasks[index].isChecked = !newTasks[index].isChecked;
-
         setTasks(newTasks);
+        tasksModified();
     }
 
     const onClickBinHandler = (e) =>{
         let temp = Tasks.slice();
         temp.splice(e, 1);
         setTasks(temp);
+        tasksModified();
     }
 
-    const addTask = (taskToAdd) => {
-        this.setState({
-          tasks : this.Tasks.concat([{        
-                taskToAdd  
-          }]),
-        }); 
-        console.log(this.state.tasks);
+    const addTask = () => {
+        let taskToAdd="";
+        while(taskToAdd === ""){
+            taskToAdd = prompt("Quel est l'intitulé de la tâche à ajouter ?");
+        }
+        if (taskToAdd === null || taskToAdd === "") {
+            return;
+        }
+        let temp = Tasks.slice();
+
+        var date = new Date();
+        var dd = String(date.getDate()).padStart(2, '0');
+        var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = date.getFullYear();
+        date = mm + '/' + dd + '/' + yyyy;
+
+        taskToAdd = {"date": date,"content": taskToAdd, "isChecked" : false};
+        temp.push(taskToAdd);
+        setTasks(temp);
+        tasksModified();
     }
 
     const renderTask = (i) => {
@@ -76,7 +98,9 @@ const App = () =>{
                 
 
             
-            <Footer/>
+            <Footer
+                addTask={() => addTask()}
+            />
                 
         </div>
     )

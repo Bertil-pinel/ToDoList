@@ -1,25 +1,106 @@
+body{
+    background-color: black;
+    color: aliceblue;
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.App{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header{
+    height: 10%;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: solid gray 0.3em;
+    border-bottom-right-radius: 2em;
+
+    margin-bottom: 0;
+}
+
+.Header h1 {
+    margin-bottom: 0;
+}
+
+
+.tasks{
+    width: 100vw;
+    height: auto;
+    overflow-y: auto;
+}
+
+.Footer{
+    height: 10%;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+
+    border-top: solid gray 0.3em;
+    border-top-right-radius: 2em;
+}
+
+.Footer input[type=text]{
+    height: 40%;
+
+    background-color: antiquewhite;
+
+    border: none;
+    border-bottom: 2px solid cyan;
+    border-radius: 0.5em;
+}
+   
+    
 .task{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content:flex-start;
     align-items: center;
+    background-color: antiquewhite;
+    color: rgb(0, 0, 20);
+    margin: 1em 0em;
+    padding: 0.5em;
+    border-radius: 1em;
 }
 
 .task .date{
-    width: 5%;
-    padding-left: 1em;
-    padding-right: 3em;
+    font-size: x-small;
+
+    padding-left: 0.5em;
+    padding-right: 1em;
     color: gray;
 }
-.task button{
-    position: fixed;
-    right: 1em;
-}
-.task .content{
-    width: 80%;
-}
 
+.task .content{
+    width: 62%;
+    overflow-wrap: break-word;
+}
 
 ul{
     list-style: none;
+    padding: 0em 0.5em;
+
 }
+
