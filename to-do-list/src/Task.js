@@ -12,14 +12,9 @@ class Task extends React.Component {
         id: props.ID,
         };
     }
-
-    onChangeHandler(e){
-      console.log('click');
-    }
-  
       
     render() {
-      let checked = this.state.isChecked ? <div class="checked"></div> : <div class="unchecked"></div>; 
+      let checked = this.state.isChecked ? <div className="frame check" onClick={this.props.onClickCheckHandler(this.state.id)}></div> : <div className="frame" onClick={this.props.onClickCheckHandler()} ></div>; 
      
       return (
         <li>
@@ -27,7 +22,7 @@ class Task extends React.Component {
                 {checked}
                 <p className="date">{this.state.date}</p>
                 <p className="content">{this.state.content}</p>
-                <button ><img src="/bin.png" height="20"/></button>     
+                <button onClick={this.props.binHandler}><img src="/bin.png" alt="poubelle" height="20"/></button>     
             </div>
         </li>
       );

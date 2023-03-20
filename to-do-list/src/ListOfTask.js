@@ -8,18 +8,19 @@ class ListOfTask extends React.Component {
       super(props); 
       this.state= {
         tasks: props.tasks,
-        numberOfTasks: props.tasks.length,
       };
     }
   
     addTask(taskToAdd){
       this.setState({
-        tasks : this.tasks.concat([{        
+        tasks : this.props.Tasks.concat([{        
               taskToAdd  
         }]),
-        numberOfTasks : this.numberOfTasks++,
       }); 
+      console.log(this.state.tasks);
     }
+
+
 
     renderTask(i){
         return (
@@ -29,15 +30,15 @@ class ListOfTask extends React.Component {
               content={this.state.tasks[i].content}
               isChecked={this.state.tasks[i].isChecked}
               ID={i}
+              binHandler={() => this.onClickBinHandler(i)}
+              onClickCheckHandler={() => this.props.onClickCheckHandler}
             />
         );
-            
-        
     }
       
     render() {
         const Tasks = [];
-        for(let i = 0 ; i < this.state.numberOfTasks; i++)
+        for(let i = 0 ; i < this.state.tasks.length; i++)
           Tasks.push(this.renderTask(i));
       
   
