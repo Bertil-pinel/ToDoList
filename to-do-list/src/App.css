@@ -94,8 +94,25 @@ body{
 }
 
 .task .content{
-    width: 62%;
+    width: 60%;
     overflow-wrap: break-word;
+}
+
+.Footer ion-icon{
+    width: 10vw;
+    height: 10vh;
+    color: white;
+}
+
+ button{
+    background-color: transparent;
+    border: none;
+    padding: 0.2em;
+    margin: 0;
+}
+.task ion-icon{
+    width: 6vw;
+    height: 6vh;
 }
 
 ul{
