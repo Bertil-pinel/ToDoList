@@ -51,7 +51,7 @@ const App = () =>{
 
             <div className="tasks">
                 <ul>
-                    {TasksDisplay.length !== 0?TasksDisplay.map((item, index) => renderTask(index)):"Il n'y a aucune tâche correspondante."}
+                    {TasksDisplay.length !== 0?TasksDisplay.map((item, index) => renderTask(index)):<li>Il n'y a aucune tâche correspondante.</li>}
                </ul>
             </div>
                 
